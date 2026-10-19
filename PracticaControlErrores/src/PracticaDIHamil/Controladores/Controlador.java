@@ -117,7 +117,8 @@ public class Controlador {
     }
     
     
-    public void controlarEdicion(int index){
+    public void controlarEdicion(){
+        int index= pantallaPrincipal.getjList().getSelectedIndex();
         if(index==-1){
             pantallaPrincipal.establecerLabelInformacion("Tienes que selecionar alguno de la lista para editar" , false);
         }else {
@@ -128,11 +129,15 @@ public class Controlador {
     }
     
     
-      public void controlarEliminacion(int index,Facturas fact){
+      public void controlarEliminacion(){
+        int index= pantallaPrincipal.getjList().getSelectedIndex();
+       
+      
         if(index==-1){
             pantallaPrincipal. establecerLabelInformacion("Tienes que selecionar alguno de la lista para eliminar" , false);
            
         }else {
+            Facturas fact = (Facturas)pantallaPrincipal.getModelolista().getElementAt(index);
              if(gt.eliminarFactura(fact)){//comprobamos que ha salido bien eliminar si de algun modo llega a fallar
                 pantallaPrincipal.eliminarListaFactura(fact);
                 pantallaPrincipal.establecerLabelInformacion("Eliminado con exito",true); 

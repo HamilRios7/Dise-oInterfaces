@@ -25,8 +25,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName());
     private DefaultListModel modelolista= new DefaultListModel();
-    private Controlador cd;
-    private Facturas factura;
+    Controlador cd;
+    
     /**
      * Creates new form PantallaPrincipal
      */
@@ -200,12 +200,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
 
-       int index= jList.getSelectedIndex();
-        Facturas fact = null;
-        if(index != -1){
-        fact = (Facturas)modelolista.getElementAt(index);
-        }
-        cd.controlarEliminacion(index, fact);//comprobamos con controlador que tenga seleccionado el Jlist
+        cd.controlarEliminacion();//comprobamos con controlador que tenga seleccionado el Jlist
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
   
@@ -227,8 +222,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        int index= jList.getSelectedIndex();
-        cd.controlarEdicion(index);//comprobamos con controlador que tenga seleccionado el Jlist
+
+        cd.controlarEdicion();//comprobamos con controlador que tenga seleccionado el Jlist
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jListComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jListComponentAdded
@@ -252,6 +247,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         }
         jLabelControlErrores.setText(informacion);
     }
+    
 
     public JList<String> getjList() {
         return jList;
@@ -297,7 +293,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
       public void mostrarListaFactura(Facturas fact){
         modelolista.addElement(fact);
-    }
+      }
     
       public void darDatosEdicionFactura(Facturas fact){
      
@@ -317,9 +313,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         cd.setEditarDado(true);
         
-       
-        
-        
         }
       
       
@@ -330,11 +323,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         cd.setEditarDado(false);    
        }
     
-        public void eliminarListaFactura(Facturas fact){
-       
-         modelolista.removeElement(fact);
-        
-        }
+    
+    public void eliminarListaFactura(Facturas fact){
+        modelolista.removeElement(fact);
+    }
     
     
     /**
