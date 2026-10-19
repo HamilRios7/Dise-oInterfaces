@@ -25,14 +25,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PantallaPrincipal.class.getName());
     private DefaultListModel modelolista= new DefaultListModel();
-    Controlador cd;
     
     /**
      * Creates new form PantallaPrincipal
      */
     public PantallaPrincipal() {
        initComponents();
-       cd=new Controlador(this);
        jList.setModel(modelolista);
     }
 
@@ -200,13 +198,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
 
-        cd.controlarEliminacion();//comprobamos con controlador que tenga seleccionado el Jlist
+        Controlador.controlarEliminacion();//comprobamos con controlador que tenga seleccionado el Jlist
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
   
     private void jButtonAñadir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadir2ActionPerformed
         try{
-        cd.revisarFormulario();
+        Controlador.revisarFormulario();
         }catch(ParseException pe){
         }  
     }//GEN-LAST:event_jButtonAñadir2ActionPerformed
@@ -223,7 +221,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
 
-        cd.controlarEdicion();//comprobamos con controlador que tenga seleccionado el Jlist
+        Controlador.controlarEdicion();//comprobamos con controlador que tenga seleccionado el Jlist
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jListComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jListComponentAdded
@@ -311,7 +309,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         jComboBoxTipo.setSelectedItem(fact.getTipo());
         
-        cd.setEditarDado(true);
+        Controlador.setEditarDado(true);
         
         }
       
@@ -320,7 +318,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     
         modelolista.removeElement(factVieja);
         modelolista.addElement(actualizada);   
-        cd.setEditarDado(false);    
+        Controlador.setEditarDado(false);    
        }
     
     
@@ -349,9 +347,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        Controlador.iniciar();
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new PantallaPrincipal().setVisible(true));
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

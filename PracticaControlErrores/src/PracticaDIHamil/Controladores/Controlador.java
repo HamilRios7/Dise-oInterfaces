@@ -19,17 +19,20 @@ import java.util.Date;
  */
 public class Controlador {
     
-    PantallaPrincipal pantallaPrincipal;
-    GestorFacturas gt;
-        private static boolean editarDado=false;
-    public Controlador( PantallaPrincipal pp){
-        this.pantallaPrincipal=pp;
+    private static PantallaPrincipal pantallaPrincipal;
+    private static GestorFacturas gt;
+    private static boolean editarDado=false;
+        
+    public Controlador(){
         gt=new GestorFacturas ();
     }
     
+    public static void iniciar(){
+       pantallaPrincipal = new PantallaPrincipal();
+       pantallaPrincipal.setVisible(true); 
+    }
     
-    
-    public void revisarFormulario() throws ParseException{
+    public static void revisarFormulario() throws ParseException{
         String asunto,tipoEmpresa,cantidadString;
         int dia, mes, año, cantidad=0;
         asunto=pantallaPrincipal.getjTextFieldAsunto().getText();
@@ -117,7 +120,7 @@ public class Controlador {
     }
     
     
-    public void controlarEdicion(){
+    public static void controlarEdicion(){
         int index= pantallaPrincipal.getjList().getSelectedIndex();
         if(index==-1){
             pantallaPrincipal.establecerLabelInformacion("Tienes que selecionar alguno de la lista para editar" , false);
@@ -129,10 +132,9 @@ public class Controlador {
     }
     
     
-      public void controlarEliminacion(){
+      public static void controlarEliminacion(){
         int index= pantallaPrincipal.getjList().getSelectedIndex();
        
-      
         if(index==-1){
             pantallaPrincipal. establecerLabelInformacion("Tienes que selecionar alguno de la lista para eliminar" , false);
            
