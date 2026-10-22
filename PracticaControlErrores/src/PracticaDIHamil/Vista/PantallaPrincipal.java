@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JSpinner;
@@ -198,15 +199,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
 
-        Controlador.controlarEliminacion();//comprobamos con controlador que tenga seleccionado el Jlist
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
   
     private void jButtonAñadir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadir2ActionPerformed
-        try{
-        Controlador.revisarFormulario();
-        }catch(ParseException pe){
-        }  
+       
     }//GEN-LAST:event_jButtonAñadir2ActionPerformed
 
     private void jListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListValueChanged
@@ -221,8 +218,20 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
 
-        Controlador.controlarEdicion();//comprobamos con controlador que tenga seleccionado el Jlist
+  
     }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    public JButton getjButtonAñadir2() {
+        return jButtonAñadir2;
+    }
+
+    public JButton getjButtonEditar() {
+        return jButtonEditar;
+    }
+
+    public JButton getjButtonEliminar() {
+        return jButtonEliminar;
+    }
 
     private void jListComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jListComponentAdded
 
@@ -247,7 +256,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
     
 
-    public JList<String> getjList() {
+    public JList<Facturas> getjList() {
         return jList;
     }
 
@@ -315,7 +324,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
       
       
     public void actualizarListaFactura(Facturas actualizada,Facturas factVieja){
-    
+        
         modelolista.removeElement(factVieja);
         modelolista.addElement(actualizada);   
         Controlador.setEditarDado(false);    
@@ -362,7 +371,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelControlErrores;
-    private javax.swing.JList<String> jList;
+    private javax.swing.JList<Facturas> jList;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinnerAño;
     private javax.swing.JSpinner jSpinnerDay;

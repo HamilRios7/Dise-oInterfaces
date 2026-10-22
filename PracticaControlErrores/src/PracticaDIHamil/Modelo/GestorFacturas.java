@@ -57,16 +57,16 @@ public class GestorFacturas {
         for(int i =0; i < gf.size() && !existe; i++){
            
             if(gf.get(i).getAsunto().equals(fact.getAsunto())){
+                gf.remove(i);
                  existe=true;
             }
         }
         
-        if(existe){
-            gf.remove(fact);
-           return true;
-        }else{
-            return false;
-        }
+      
+           return existe;
+        
+           
+        
         
     }
     

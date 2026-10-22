@@ -25,10 +25,15 @@ public class Controlador {
         
     public Controlador(){
         gt=new GestorFacturas ();
+        
+    pantallaPrincipal.getjButtonAñadir2().addActionListener(e -> {try { revisarFormulario(); } catch (ParseException ex) { /* mostrar error */ }});
+   pantallaPrincipal.getjButtonEliminar().addActionListener(e -> controlarEliminacion());
+   pantallaPrincipal.getjButtonEditar().addActionListener(e -> controlarEdicion());
     }
     
     public static void iniciar(){
        pantallaPrincipal = new PantallaPrincipal();
+       new Controlador();
        pantallaPrincipal.setVisible(true); 
     }
     
